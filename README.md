@@ -123,7 +123,7 @@ Download `index.html` and open it in a browser. Demo Student / Demo Admin work i
 - **GitHub Pages:** repo Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save. Your site will be at `https://ravi7004757752-lab.github.io/campus-lost-found-management-system/`.
 
 ### Option 3 — Connect your own Firebase (live sync)
-The app already works with the Firebase project baked into `index.html`. To use **your own** Firebase project instead:
+The Firebase config in `index.html` is a placeholder. To enable live sync, fill it in with **your own** Firebase project:
 1. Create a project at [console.firebase.google.com](https://console.firebase.google.com/) → enable **Authentication → Email/Password**.
 2. Create a **Firestore Database** (test mode to start).
 3. Register a Web App, copy its config, and replace the `firebaseConfig` in `index.html`.
@@ -135,7 +135,7 @@ The app already works with the Firebase project baked into `index.html`. To use 
 
 ## 🔒 Security notes
 
-- Firebase Project ID and Web API key are embedded in `index.html` because a web client needs them to connect. They are **not** a password — but do not add service-account keys or any other secret to this file.
+- **No real Firebase key is in this repo.** The Firebase config in `index.html` is a placeholder (`YOUR_FIREBASE_API_KEY`, `YOUR_PROJECT_ID`, …). Fill in your own Firebase config there to enable live sync, or leave it as-is — Demo Student / Demo Admin still work without it. Never commit a real API key, service-account key, or any other secret to a public repo.
 - Passwords are stored by Firebase as one-way hashes — nobody, including an admin, can read a user's password back. Use **Forgot password** in the app instead.
 - False claims are rejected and stay on record. One approved claim wins — an admin cannot approve a second claim on an item that already has a verified owner.
 
